@@ -1,0 +1,69 @@
+//1
+<div style="display: flex; flex-direction: column; margin: auto; width: 50vw;">
+    <label class="spacing">
+        Name : <input [formControl]='name' type="text" placeholder="Enter Name" /> {{ name.value }}
+    </label>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.errors?.['required']">
+            Name is required.
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+            Name must be at least 4 characters long.
+        </div>
+    </div>
+
+    <label class="spacing">
+        Email : <input [formControl]='email' type="email" placeholder="Enter Email" /> {{ email.value }}
+    </label>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">
+            Email is required.
+        </div>
+    </div>
+
+    <label class="spacing">
+        Phone Number : <input [formControl]='phoneNumber' type="text" placeholder="Enter Phone Number" /> {{
+        phoneNumber.value }}
+    </label>
+    <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+        <div *ngIf="phoneNumber.errors?.['required']">
+            Phone Number is required.
+        </div>
+        <div *ngIf="phoneNumber.errors?.['minlength']">
+            Phone Number must be at least 10 characters long.
+        </div>
+        <div *ngIf="phoneNumber.errors?.['maxlength']">
+            Phone Number must be at most 10 characters long.
+        </div>
+    </div>
+
+    <label class="spacing">
+        Address : <input [formControl]='address' type="text" placeholder="Enter Address" /> {{ address.value }}
+    </label>
+    <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="address.errors?.['required']">
+            Address is required.
+        </div>
+        <div *ngIf="address.errors?.['minlength']">
+            Address must be at least 30 characters long.
+        </div>
+        <div *ngIf="address.errors?.['maxlength']">
+            Address must be at most 150 characters long.
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+//2
+{{ groupItem() | json }}
+
+<br><br>
+
+//3
+{{ findLagest() }}
+
+<br><br>
+
+//5
+{{ removeDuplicates() }}
